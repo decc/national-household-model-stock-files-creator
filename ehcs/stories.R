@@ -409,7 +409,7 @@ scale.building.storeys <- function(result, target) {
 #' @param scale - if true, scale total area to floorarea in frame
 one.building.storeys <- function(frame, scale) {
     ## Find out if we are making a house
-    if (is.a.house(frame$dwtype8x)) {
+    if (is.a.house(frame$dwtype8x) == TRUE) {
     #if (grepl("house", frame$dwtype8x)) {
         ## so if we are making a house, we need to know how many storeys and
         ## whether there's a basement
@@ -487,12 +487,12 @@ generate.all.storeys <- function(base.directory, output.file, scale) {
 
     big.data <- Reduce(join.aacode,
                        list(
-                           read.input("derived/detailed/dimensions_11plus12.sav"),
-                           read.input("derived/physical_11plus12.sav"),
-                           read.input("physical/shape.sav"),
-                           read.input("physical/flatdets.sav"),
-                           read.input("physical/interior.sav"),
-                           read.input("physical/services.sav")))
+                           read.input("derived/detailed/dimensions_13plus14_sl_protect.sav"),
+                           read.input("derived/physical_13plus14_sl_protect.sav"),
+                           read.input("physical/shape_sl_protect.sav"),
+                           read.input("physical/flatdets_sl_protect.sav"),
+                           read.input("physical/interior_sl_protect.sav"),
+                           read.input("physical/services_sl_protect.sav")))
 
     ## for speed, retain only the variables we are actually using
     ## and make a data.table rather than a data.frame.
